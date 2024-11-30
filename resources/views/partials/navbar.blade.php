@@ -14,11 +14,11 @@
              <div class="collapse navbar-collapse" id="collapsibleNavId">
                  <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                      <li class="nav-item">
-                         <a class="nav-link active" href="{{ route('homepage') }}" aria-current="page">Home
+                         <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : ''  }}" href="{{ route('homepage') }}" aria-current="page">Home
                              <span class="visually-hidden">(current)</span></a>
                      </li>
                      <li class="nav-item">
-                         <a class="nav-link" href="#">About</a>
+                         <a class="nav-link " href="#">About</a>
                      </li>
                      <li class="nav-item dropdown">
                          <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
@@ -32,7 +32,7 @@
                          <a class="nav-link" href="#">FAQs</a>
                      </li>
                      <li class="nav-item">
-                         <a class="nav-link" href="{{ route('contact.page') }}">Contact Us</a>
+                         <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : ''  }}" href="{{ route('contact.page') }}">Contact Us</a>
                      </li>
 
                      @guest
