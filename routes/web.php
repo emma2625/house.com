@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [PageController::class, "index"])->name('homepage');
@@ -22,3 +23,6 @@ Route::get('/categories/{id}', [CategoryController::class, 'edit'])->name('admin
 Route::patch('/categories/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
 
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
+
+
+Route::resource('admin/properties', PropertyController::class)->except(['show']);
