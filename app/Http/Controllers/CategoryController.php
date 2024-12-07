@@ -21,6 +21,13 @@ class CategoryController extends Controller
         return view('categories.create');
     }
 
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+
+        return view('categories.edit', compact('category'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -32,6 +39,27 @@ class CategoryController extends Controller
         ]);
 
         Alert::toast('Created Successfully', 'success');
+        return back();
+    }
+    public function update(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        $request->validate([
+            'name' => "required|string|max:255|unique:categories,name,{$id}",
+        ]);
+
+        Category::where('id', $id)->update([
+            'name' => $request->input('name')
+        ]);
+
+        Alert::toast('Updated Successfully', 'success');
+        return back();
+    }
+
+    public function destroy($id) {
+        Category::where('id', $id)->delete();
+        
+        Alert::toast('Deleted Successfully', 'success');
         return back();
     }
 }

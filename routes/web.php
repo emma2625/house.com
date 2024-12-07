@@ -18,3 +18,7 @@ Route::get('/categories', [CategoryController::class, 'index'])->name('admin.cat
 
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('admin.category.create');
 Route::post('/categories/create', [CategoryController::class, 'store'])->name('admin.category.store');
+Route::get('/categories/{id}', [CategoryController::class, 'edit'])->name('admin.category.edit');
+Route::patch('/categories/{id}', [CategoryController::class, 'update'])->name('admin.category.update');
+
+Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
