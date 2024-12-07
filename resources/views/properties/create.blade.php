@@ -10,7 +10,10 @@
                             All Properties
                         </a>
                     </div>
-                    <form action="{{ route('properties.store') }}" method="POST">
+
+                    {{-- enctype="multipart/form-data" . This is needed whenever we submit a form with a file --}}
+                    
+                    <form action="{{ route('properties.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-4">
@@ -85,7 +88,9 @@
                         <div class="mb-4">
                             <label for="category"> Property Category </label>
                             <select name="category" id="category" class="form-select">
-
+                                @foreach ($categories as $cat)
+                                    <option value="{{ $cat->id }}"> {{ $cat->name }} </option>
+                                @endforeach
                             </select>
                             @error('category')
                                 <span class="small text-danger fw-bold"> {{ $message }} </span>

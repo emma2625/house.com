@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
@@ -19,7 +20,8 @@ class PropertyController extends Controller
      */
     public function create()
     {
-       return view('properties.create');
+        $categories = Category::all();
+        return view('properties.create', compact('categories'));
     }
 
     /**
@@ -27,7 +29,7 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->file(), $request->input());
     }
 
     /**
