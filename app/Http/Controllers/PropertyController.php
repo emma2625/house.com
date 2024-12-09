@@ -29,7 +29,9 @@ class PropertyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->file(), $request->input());
+       $request->validate([
+            'name' => "required|string|max:255",
+       ]);
     }
 
     /**
