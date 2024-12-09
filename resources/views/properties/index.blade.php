@@ -26,6 +26,13 @@
                                 @else
                                     <span class="badge text-bg-primary"> For Rent </span>
                                 @endif
+
+                                <div class="mt-4 border-top pt-2">
+                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                    <form action="" class="d-inline">
+                                        <button class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
