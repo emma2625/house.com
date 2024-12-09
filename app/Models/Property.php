@@ -13,7 +13,7 @@ class Property extends Model
         'name',
         'price',
         'address',
-        'location',
+        'state',
         'status',
         'category_id',
         'picture',
