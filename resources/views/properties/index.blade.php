@@ -10,33 +10,20 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/img-1.1.jpg') }}" alt="Title" />
-                        <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
+                @forelse ($properties as $property)
+                    <div class="col-lg-4 col-md-6 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ asset($property->picture) }}" alt="Title" />
+                            <div class="card-body">
+                                <h4 class="card-title"> {{ $property->image }} </h4>
+                                <p class="card-text">Text</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/img-1.1.jpg') }}" alt="Title" />
-                        <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-3">
-                    <div class="card">
-                        <img class="card-img-top" src="{{ asset('images/img-1.1.jpg') }}" alt="Title" />
-                        <div class="card-body">
-                            <h4 class="card-title">Title</h4>
-                            <p class="card-text">Text</p>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p> No Record Found </p>
+                @endforelse
+
             </div>
         </div>
     </section>
