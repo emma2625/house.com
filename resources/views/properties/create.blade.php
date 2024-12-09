@@ -12,7 +12,7 @@
                     </div>
 
                     {{-- enctype="multipart/form-data" . This is needed whenever we submit a form with a file --}}
-                    
+
                     <form action="{{ route('properties.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
@@ -107,16 +107,26 @@
 
                         <div class="mb-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" id="sale" />
+                                <input class="form-check-input" type="radio" name="status" value="sale" id="sale" />
                                 <label class="form-check-label" for="sale"> For Sale</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="status" id="rent" />
+                                <input class="form-check-input" type="radio" name="status" value="rent" id="rent" />
                                 <label class="form-check-label" for="rent"> For Rent</label>
                             </div>
 
-                            
+                            @error('status')
+                                <span class="small text-danger fw-bold"> {{ $message }} </span>
+                            @enderror
+                        </div>
 
+
+                        <div class="mb-4">
+                            <label for="description">Description </label>
+                            <textarea rows="6"name="description" id="description" class="form-control"></textarea>
+                            @error('description')
+                                <span class="small text-danger fw-bold"> {{ $message }} </span>
+                            @enderror
                         </div>
                         <div class="text-center my-3">
                             <button class="btn btn-primary px-5">Save</button>

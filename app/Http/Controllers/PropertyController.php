@@ -31,9 +31,19 @@ class PropertyController extends Controller
     {
        $request->validate([
             'name' => "required|string|max:255",
+            'price' => "required|numeric",
+            'address' => "required|string",
+            'state' => "required|string",
+            'category' => "required|exists:categories,id",
+            'picture' => "required|image|mimes:png,jpg,jpeg|max:5120",
+            'description' => "required|string",
+            'status' => "required|string|in:sale,rent",
        ]);
+
+
     }
 
+    
     /**
      * Display the specified resource.
      */
