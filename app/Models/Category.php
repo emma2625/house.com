@@ -12,4 +12,9 @@ class Category extends Model
         'name',
     ];
 
+
+    public function properties() {
+        // return $this->hasOne(Property::class, 'category_id');
+        return $this->hasMany(Property::class, 'category_id');
+    }
 }
