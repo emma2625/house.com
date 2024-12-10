@@ -30,7 +30,8 @@
                                 <div class="mt-4 border-top pt-2">
                                     <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
-                                    <form action="" class="d-inline">
+                                    <form onsubmit="return confirm('Are you sure?')" action="{{ route('properties.destroy', $property->id) }}" class="d-inline" method="POST">
+                                        @csrf @method('DELETE')
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </div>
