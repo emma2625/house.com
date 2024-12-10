@@ -9,6 +9,13 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware(['auth', 'permit.admin']);
+    }
+
     public function index()
     {
         $categories = Category::all();

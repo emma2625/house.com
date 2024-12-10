@@ -25,4 +25,4 @@ Route::patch('/categories/{id}', [CategoryController::class, 'update'])->name('a
 Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('admin.category.destroy');
 
 
-Route::resource('admin/properties', PropertyController::class)->except(['show']);
+Route::resource('admin/properties', PropertyController::class)->except(['show'])->middleware(['auth', 'permit.admin']);

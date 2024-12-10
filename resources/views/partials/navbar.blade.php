@@ -14,7 +14,8 @@
              <div class="collapse navbar-collapse" id="collapsibleNavId">
                  <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                      <li class="nav-item">
-                         <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : ''  }}" href="{{ route('homepage') }}" aria-current="page">Home
+                         <a class="nav-link {{ request()->routeIs('homepage') ? 'active' : '' }}"
+                             href="{{ route('homepage') }}" aria-current="page">Home
                              <span class="visually-hidden">(current)</span></a>
                      </li>
                      <li class="nav-item">
@@ -32,7 +33,8 @@
                          <a class="nav-link" href="#">FAQs</a>
                      </li>
                      <li class="nav-item">
-                         <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : ''  }}" href="{{ route('contact.page') }}">Contact Us</a>
+                         <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : '' }}"
+                             href="{{ route('contact.page') }}">Contact Us</a>
                      </li>
 
                      @guest
@@ -55,6 +57,14 @@
                              </a>
 
                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                 @if (Auth::user()->role == 'admin')
+                                     <a class="dropdown-item" href="{{ route('admin.category.index') }}">
+                                         Categories
+                                     </a>
+                                     <a class="dropdown-item" href="{{ route('properties.index') }}">
+                                         Properties
+                                     </a>
+                                 @endif
                                  <a class="dropdown-item" href="{{ route('logout') }}"
                                      onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
