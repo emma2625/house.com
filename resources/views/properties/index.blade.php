@@ -28,7 +28,8 @@
                                 @endif
 
                                 <div class="mt-4 border-top pt-2">
-                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ route('properties.edit', $property->id) }}" class="btn btn-primary btn-sm">Edit</a>
+
                                     <form action="" class="d-inline">
                                         <button class="btn btn-danger btn-sm">Delete</button>
                                     </form>
@@ -40,6 +41,10 @@
                     <p> No Record Found </p>
                 @endforelse
 
+
+                <div class="mt-5">
+                   {!! $properties->links('pagination::bootstrap-5') !!}
+                </div>
             </div>
         </div>
     </section>
