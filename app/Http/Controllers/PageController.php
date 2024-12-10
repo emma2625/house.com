@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function index() {
-        $properties = Property::latest()->paginate(9);
+        $properties = Property::limit(6)->get();
        return view('welcome', compact('properties'));
     }
 
