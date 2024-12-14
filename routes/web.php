@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [PageController::class, "index"])->name('homepage');
 
 Route::get('contact', [PageController::class, "getContact"])->name('contact.page');
+Route::post('contact', [PageController::class, "sendMessage"])->name('contact.send');
 
 Auth::routes();
 
