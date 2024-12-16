@@ -20,6 +20,16 @@ class PageController extends Controller
     {
         return view('contact');
     }
+    public function getListings()
+    {
+        $properties = Property::latest()->paginate(9);
+        return view('properties', compact('properties'));
+    }
+    public function viewListing($id)
+    {
+        $property = Property::findOrFail($id);
+        return view('single-property', compact('property'));
+    }
 
 
 

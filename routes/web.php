@@ -7,6 +7,8 @@ use App\Http\Controllers\PropertyController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [PageController::class, "index"])->name('homepage');
+Route::get('listings', [PageController::class, "getListings"])->name('listing.page');
+Route::get('listings/{id}/view', [PageController::class, "viewListing"])->name('listing.view.page');
 
 Route::get('contact', [PageController::class, "getContact"])->name('contact.page');
 Route::post('contact', [PageController::class, "sendMessage"])->name('contact.send');

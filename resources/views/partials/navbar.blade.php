@@ -33,13 +33,16 @@
                          <a class="nav-link" href="#">FAQs</a>
                      </li>
                      <li class="nav-item">
+                         <a class="nav-link" href="{{ route('listing.page') }}">Properties</a>
+                     </li>
+                     <li class="nav-item">
                          <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : '' }}"
                              href="{{ route('contact.page') }}">Contact Us</a>
                      </li>
 
                      @guest
                          @if (Route::has('login'))
-                             <li class="nav-item">
+                             <li class="nav-item ms-auto">
                                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                              </li>
                          @endif
