@@ -51,6 +51,10 @@
                 @empty
                     <p> No Record Found </p>
                 @endforelse
+
+                <div class="my-5">
+                    {!! $properties->links('pagination::bootstrap-5') !!}
+                </div>
             </div>
         </div>
     </section>

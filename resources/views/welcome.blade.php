@@ -59,14 +59,16 @@
             <div class="row">
                 @forelse ($properties as $property)
                     <div class="col-lg-4 col-md-6 mb-3">
-                        <div class="card position-relative">
+                        <a href="{{ route('listing.view.page', $property->id) }}" class="card nav-link position-relative">
                             <img class="card-img-top" src="{{ asset($property->picture) }}" alt="Title"
                                 style="height: 20rem;" />
                             <div class="card-body">
                                 <h4 class="card-title"> {{ $property->name }} </h4>
-                                <p class="border p-2 rounded position-absolute top-0 end-0 m-1 text-bg-success">
+                                <p class="border p-2 rounded position-absolute top-0 end-0 m-1 badge text-bg-success">
                                     {{ $property->category->name }}
                                 </p>
+
+                                <h5>₦ {{ number_format($property->price, 2) }}</h5>
 
                                 @if ($property->status == 'sale')
                                     <span class="badge text-bg-warning"> For Sale </span>
@@ -75,7 +77,7 @@
                                 @endif
 
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @empty
                     <p> No Record Found </p>
