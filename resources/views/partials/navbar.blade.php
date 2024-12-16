@@ -1,5 +1,5 @@
  <!-- Navbar Starts -->
- <section>
+ <section class="sticky-top">
      <nav class="navbar navbar-expand-lg navbar-dark bg-success">
          <div class="container-fluid">
              <a class="navbar-brand" href="{{ route('homepage') }}">

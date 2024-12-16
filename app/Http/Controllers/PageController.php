@@ -12,7 +12,7 @@ class PageController extends Controller
 {
     public function index()
     {
-        $properties = Property::limit(6)->get();
+        $properties = Property::latest()->limit(6)->get();
         return view('welcome', compact('properties'));
     }
 

@@ -51,7 +51,10 @@
     <!-- Latest Starts -->
     <section class="my-5">
         <div class="container">
-            <h2 class="mb-5">Latest Properties</h2>
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="mb-5">Latest Properties</h2>
+                <a href="" class="btn btn-success btn-sm"> View All</a>
+            </div>
 
             <div class="row">
                 @forelse ($properties as $property)
@@ -77,6 +80,7 @@
                 @empty
                     <p> No Record Found </p>
                 @endforelse
+
             </div>
         </div>
     </section>
